@@ -10,6 +10,18 @@ const ENVIRONMENT = process.env.NODE_ENV || '';
 
 const bot = new Telegraf(BOT_TOKEN);
 
+bot.start(async (ctx) => {
+  console.log("+++++ BOT START +++++");
+  await startAction(ctx);
+});
+
+async function startAction(ctx) {
+  const userId = ctx.from.id;
+  let firstname = ctx.from.first_name;
+  await bot.telegram.sendChatAction(userId, "typing");
+  await bot.telegram.sendMessage(userId, `Hello ${firstname}`);
+}
+
 bot.command('about', about());
 bot.on('message', greeting());
 
