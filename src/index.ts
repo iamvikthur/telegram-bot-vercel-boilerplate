@@ -11,7 +11,7 @@ const ENVIRONMENT = process.env.NODE_ENV || '';
 const bot = new Telegraf(BOT_TOKEN);
 
 bot.start(async (ctx: Context) => {
-  console.log("+++++ BOT START +++++");
+  console.log("+++++=== BOT START ===+++++");
   await startAction(ctx);
 });
 
