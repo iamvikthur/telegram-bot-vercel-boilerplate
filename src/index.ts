@@ -1,4 +1,4 @@
-import { Telegraf } from 'telegraf';
+import { Context, Telegraf } from 'telegraf';
 
 import { about } from './commands';
 import { greeting } from './text';
@@ -10,12 +10,12 @@ const ENVIRONMENT = process.env.NODE_ENV || '';
 
 const bot = new Telegraf(BOT_TOKEN);
 
-bot.start(async (ctx) => {
+bot.start(async (ctx: Context) => {
   console.log("+++++ BOT START +++++");
   await startAction(ctx);
 });
 
-async function startAction(ctx) {
+async function startAction(ctx: Context) {
   const userId = ctx.from.id;
   let firstname = ctx.from.first_name;
   await bot.telegram.sendChatAction(userId, "typing");
