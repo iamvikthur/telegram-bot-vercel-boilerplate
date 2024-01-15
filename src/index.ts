@@ -22,8 +22,8 @@ async function startAction(ctx: Context) {
   await bot.telegram.sendMessage(userId, `Hello ${firstname}`);
 }
 
-bot.command('about', about());
-bot.on('message', greeting());
+// bot.command('about', about());
+// bot.on('message', greeting());
 
 //prod mode (Vercel)
 export const startVercel = async (req: VercelRequest, res: VercelResponse) => {
