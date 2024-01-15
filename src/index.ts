@@ -16,8 +16,8 @@ bot.start(async (ctx: Context) => {
 });
 
 async function startAction(ctx: Context) {
-  const userId = ctx.from.id;
-  let firstname = ctx.from.first_name;
+  const userId = ctx.from!.id;
+  let firstname = ctx.from!.first_name;
   await bot.telegram.sendChatAction(userId, "typing");
   await bot.telegram.sendMessage(userId, `Hello ${firstname}`);
 }
